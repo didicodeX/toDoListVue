@@ -100,6 +100,9 @@ const sortTodo = computed(() => {
 const remainingTodos = computed(() => {
   return todos.value.filter((t) => t.completed === false).length;
 });
+
+
+const timer = usetimer();
 </script>
 
 <style scoped>
