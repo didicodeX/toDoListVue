@@ -1,4 +1,11 @@
 <template>
+  <Layout>
+    <!-- Remplacer le v-slot par le # -->
+    <template #header> En tete</template>
+    <template v-slot:aside> Sidebar</template>
+    <template v-slot:main> Main</template>
+    <template v-slot:footer> Footer</template>
+  </Layout>
   <form action="" @submit.prevent="addTodo">
     <div class="input-box">
       <input type="text" placeholder="Entrer une tache" v-model="newTodo" />
@@ -16,9 +23,10 @@
       </p>
       <ul>
         <li v-for="todo in sortTodo" :key="todo.id">
+          <!-- J'ai remplacer par le composant checkbox -->
+          <!-- 
           <input
             type="checkbox"
-            name="complete"
             :id="todo.id"
             v-model="todo.completed"
             :class="{ completed: todo.completed }"
@@ -26,14 +34,25 @@
           <label :class="{ completed: todo.completed }" :for="todo.id">
             {{ todo.title }}</label
           >
+           -->
+          <Checkbox
+            :label="todo.title"
+            @check="console.log('coche')"
+            @uncheck="console.log('decoche')"
+          />
         </li>
       </ul>
     </div>
   </form>
+  <Checkbox label="Bonjour" />
+  <Button>AZEAZEA</Button>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
+import Checkbox from "./Checkbox.vue";
+import Button from "./Button.vue";
+import Layout from "./Layout.vue";
 
 const newTodo = ref("");
 const todos = ref([
@@ -123,5 +142,3 @@ v-model
 ref 
 computed
 -->
-
-
