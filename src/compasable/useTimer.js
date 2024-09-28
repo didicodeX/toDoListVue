@@ -13,4 +13,6 @@ export function useTimer(initial = 0) {
   onUnmounted(() => {
     clearInterval(timer);
   });
+
+  return time;
 }

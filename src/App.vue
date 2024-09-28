@@ -46,6 +46,7 @@
   </form>
   <Checkbox label="Bonjour" />
   <Button>AZEAZEA</Button>
+  <input type="text"> Temps ecoule : {{ timer }}
 </template>
 
 <script setup>
@@ -53,6 +54,7 @@ import { ref, computed } from "vue";
 import Checkbox from "./Checkbox.vue";
 import Button from "./Button.vue";
 import Layout from "./Layout.vue";
+import { useTimer } from "./compasable/useTimer";
 
 const newTodo = ref("");
 const todos = ref([
@@ -102,7 +104,7 @@ const remainingTodos = computed(() => {
 });
 
 
-const timer = usetimer();
+const timer = useTimer();
 </script>
 
 <style scoped>
